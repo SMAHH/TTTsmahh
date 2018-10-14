@@ -1,0 +1,22 @@
+{
+  "name": "ttt",
+  "version": "1.0.0",
+  "description": "TicTacToe",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SMAHH/TTTsmahh.git"
+  },
+  "author": "SMAHH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SMAHH/TTTsmahh/issues"
+  },
+  "homepage": "https://github.com/SMAHH/TTTsmahh#readme",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
