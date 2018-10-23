@@ -17,8 +17,23 @@ function verifyInput (input){
     }
 }
 
+function clearBoard(board){
+  if(board.length == 9){
+    for(var i = 0 ; i < 9 ; i++){
+      board[i] = i;
+    }
+    return board;
+  }
+  else {
+    return("Board must be 3x3");
+  }
+}
+
 function switchPlayer (){
     console.log("game switches player here...");
 }
 
-module.exports = gameStart;
+module.exports = {
+  gameStart,
+  clearBoard
+}
