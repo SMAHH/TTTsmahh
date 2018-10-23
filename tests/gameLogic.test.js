@@ -1,4 +1,4 @@
-const gameLogic = require("./../src/gameLogic");
+const gameLogic = require("./../src/logic/gameLogic");
 
 it("Should return a message if no integer is chosen", () => {
     expect(gameLogic.gameStart("")).toBe("No square chosen...");
