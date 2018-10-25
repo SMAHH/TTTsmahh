@@ -4,6 +4,8 @@ var originalBoard;
 var currentPlayer = 'X';
 //const secondPlayer = 'O';
 const cells = document.querySelectorAll('.cell');
+
+
 startGame();
 
 function startGame(){
@@ -15,11 +17,23 @@ function startGame(){
     }
 }
 
+function resetButton() {
+    let element = document.createElement('div');
+    //element.innerHTML = '<br><strong>Hello human...<br>Script is now connected</strong>';
+    element.innerHTML = "<button id=\"resButton\">Reset Game</button>";
+    element.addEventListener('click', startGame, false);
+    return element;
+}
+
+document.body.appendChild(resetButton());
+
 function turnClick(square){
     console.log(square.target.id);
-    //square.innerHTML = firstPlayer;
-    document.getElementById(square.target.id).innerText = currentPlayer;
-    switchPlayer();
+    if(square.target.innerText == ''){
+        console.log("input player " +currentPlayer);
+        document.getElementById(square.target.id).innerText = currentPlayer;
+        switchPlayer();
+    }
 }
 
 function switchPlayer(){
@@ -31,12 +45,4 @@ function switchPlayer(){
     }
 }
 
-function component() {
-    let element = document.createElement('div');
-    //element.innerHTML = '<br><strong>Hello human...<br>Script is now connected</strong>';
-    element.innerHTML = "<button onclick=\"startGame()\">Reset Game</button>";
-//    return element;
-}
-
-document.body.appendChild(component());
 
