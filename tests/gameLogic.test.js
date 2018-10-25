@@ -25,3 +25,11 @@ it("Should return a message if the board is the wrong size", () => {
     var board = [2, 5, 4, 6, 1, 1, 1, 6, 8, 0];
     expect(gameLogic.clearBoard(board)).toBe("Board must be 3x3");
 });
+
+//Check for Winner
+
+it("Check for winner", () => {    
+    //var expected = ({1: 'X', 2: 'X', 3: 'X'});
+	expect(gameLogic.checkForWinner('X')).toBe(true);
+});
+
