@@ -20,11 +20,13 @@ describe("Index tests", () => {
   });
 
   beforeEach(async () => {
-      browser = await puppeteer.launch({ headless: false, slowMo: 400 });
+      browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+              //await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+              //await puppeteer.launch({ headless: false, slowMo: 400 });
       page = await browser.newPage();
   });
   afterEach(() =>{
-    browser.close()
+    browser.close();
   });
 
   it("should select and click 1st square", async () => {
@@ -37,11 +39,11 @@ describe("Index tests", () => {
     expect(value).toBe('X');
   });
 
-  it("should take a screenshot of the page", async () => {
-    await page.setViewport({ width: 800, height: 650 });
-    await page.goto(url);
-    await page.screenshot({path: "index-screenshot.png"});
-  });
+  //it("should take a screenshot of the page", async () => {
+  //  await page.setViewport({ width: 800, height: 650 });
+  //  await page.goto(url);
+  //  await page.screenshot({path: "index-screenshot.png"});
+  //});
 
 
 });
