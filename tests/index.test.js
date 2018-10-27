@@ -1,6 +1,7 @@
 const puppeteer = require("puppeteer");
 const request = require("supertest");
 const app = require("../src/app");
+const game = require('./../src/client/index');
 
 //describe("OPTIONS /api", () => {
 //  it("should return 200 status code", async () => {
@@ -20,7 +21,7 @@ describe("Index tests", () => {
   });
 
   beforeEach(async () => {
-      browser = await puppeteer.launch({ headless: false, slowMo: 400 });
+      browser = await puppeteer.launch({ });
               //await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
               //await puppeteer.launch({ headless: false, slowMo: 400 });
       page = await browser.newPage();
@@ -28,6 +29,12 @@ describe("Index tests", () => {
   afterEach(() =>{
     browser.close();
   });
+  //it("should switch player", () =>{  expect(gameLogic.switchPlayer("X")).toBe("O")});
+  //it("Should return false", () =>{
+  //  gameLogic.cells
+  //  expect(game.checkRow(0,1,2,'X')).toBeFalsy();
+  //});
+
 
   it("should select and click 1st square", async () => {
     //const res = await request(app).options("/dist");
