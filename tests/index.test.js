@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 const request = require("supertest");
 const app = require("../src/app");
-const game = require('./../src/client/index');
+//const game = require('./../src/client/index');
 
 //describe("OPTIONS /api", () => {
 //  it("should return 200 status code", async () => {
