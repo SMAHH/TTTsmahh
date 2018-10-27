@@ -20,7 +20,7 @@ describe("Index tests", () => {
   });
 
   beforeEach(async () => {
-      browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+      browser = await puppeteer.launch({ headless: false, slowMo: 400 });
               //await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
               //await puppeteer.launch({ headless: false, slowMo: 400 });
       page = await browser.newPage();
@@ -29,15 +29,15 @@ describe("Index tests", () => {
     browser.close();
   });
 
-  //it("should select and click 1st square", async () => {
+  it("should select and click 1st square", async () => {
     //const res = await request(app).options("/dist");
-  //  await page.goto(url);
-  //  await page.focus('#btn0');
-  //  await page.keyboard.type('\n');
-  //  const value = await page.evaluate(() => document.querySelector('#btn0').innerHTML);
-  //  console.log("i see value " +value);
-  //  expect(value).toBe('X');
-  //});
+    await page.goto(url);
+    await page.focus('#btn0');
+    await page.keyboard.type('\n');
+    const value = await page.evaluate(() => document.querySelector('#btn0').innerHTML);
+    console.log("i see value " +value);
+    expect(value).toBe('X');
+  });
 
   //it("should take a screenshot of the page", async () => {
   //  await page.setViewport({ width: 800, height: 650 });
