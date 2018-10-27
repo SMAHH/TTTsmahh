@@ -7,39 +7,9 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:latest-browsers
-    working_directory: ~/repo
+      - image: circleci/node:8.12.0
 
     steps:
       - checkout
-#     - run: npm install
-#     - run: npm test
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
-
-      - run:
-          name: Workaround for GoogleChrome/puppeteer
-          command: 'sh .circleci/setup_puppeteer.sh'
-
       - run: npm install
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
       - run: npm test
-#before my editing
-#version: 2
-#jobs:
-#  build:
-#    docker:
-#      # specify the version you desire here
-#      - image: circleci/node:8.12.0
-#
-#    steps:
-#      - checkout
-#      - run: npm install
-#      - run: npm test
