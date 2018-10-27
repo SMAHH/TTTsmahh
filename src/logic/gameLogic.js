@@ -17,9 +17,18 @@ function verifyInput (input){
     }
 }
 
-function changeBoard(currentPlayer, index){
-  if(index < 0 || index > 8){
-    throw 'Index out of bounds';
+function changeCell(board, currentPlayer, index){
+  if(currentPlayer != 'X' && currentPlayer != 'O'){
+    throw 'Invalid player';
+  }
+  else{
+    if(board[index] == 'X' || board[index] == 'O'){
+      return false;
+    }
+    else{
+      board[index] = currentPlayer;
+      return true;
+    }
   }
 }
 
@@ -42,5 +51,5 @@ function switchPlayer (){
 module.exports = {
   gameStart,
   clearBoard,
-  changeBoard
+  changeCell
 }
