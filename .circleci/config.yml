@@ -12,25 +12,25 @@ jobs:
 
     steps:
       - checkout
-#      - run: npm install
-#      - run: npm test
-       - restore_cache:
+#     - run: npm install
+#     - run: npm test
+      - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
 
-       - run:
+      - run:
           name: Workaround for GoogleChrome/puppeteer
           command: 'sh .circleci/setup_puppeteer.sh'
 
-       - run: npm install
+      - run: npm install
 
-       - save_cache:
+      - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-       - run: npm test
+      - run: npm test
 #before my editing
 #version: 2
 #jobs:
