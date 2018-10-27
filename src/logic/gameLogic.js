@@ -17,6 +17,12 @@ function verifyInput (input){
     }
 }
 
+function changeBoard(currentPlayer, index){
+  if(index < 0 || index > 8){
+    throw 'Index out of bounds';
+  }
+}
+
 function clearBoard(board){
   if(board.length == 9){
     for(var i = 0 ; i < 9 ; i++){
@@ -30,10 +36,11 @@ function clearBoard(board){
 }
 
 function switchPlayer (){
-    console.log("game switches player here...");
+
 }
 
 module.exports = {
   gameStart,
-  clearBoard
+  clearBoard,
+  changeBoard
 }

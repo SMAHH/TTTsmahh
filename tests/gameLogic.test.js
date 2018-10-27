@@ -25,3 +25,11 @@ it("Should return a message if the board is the wrong size", () => {
     var board = [2, 5, 4, 6, 1, 1, 1, 6, 8, 0];
     expect(gameLogic.clearBoard(board)).toBe("Board must be 3x3");
 });
+
+it("Should return an error if the index is out of bounds", () => {
+  var board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  function insertWrongIndex(){
+    gameLogic.changeBoard('X', 10);
+  }
+  expect(insertWrongIndex).toThrow('Index out of bounds');
+});
