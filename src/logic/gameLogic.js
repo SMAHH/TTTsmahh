@@ -122,6 +122,7 @@ module.exports = {
   switchPlayer,
   incrementScore,
   checkRow,
+  checkForTie,
   checkForWin,
   changeCell
 }
