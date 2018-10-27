@@ -24,8 +24,11 @@ function switchPlayer(currentPlayer){
     if(currentPlayer == 'X'){
         return 'O';
     }
-    else{
+    else if(currentPlayer == 'O'){
         return 'X';
+    }
+    else{
+      throw 'Invalid player';
     }
 }
 
