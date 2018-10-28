@@ -73,7 +73,7 @@ function printBoard() {
 
 function inputNewGame() {
   var playerInput = '';
-  console.log('Do you want to play again? y/n');
+  console.log('Do you want to play again? Y for new game, any other character to quit');
 
   prompt.get(['newGame'], function (err, result) {
     console.log(' ' + result.newGame);
