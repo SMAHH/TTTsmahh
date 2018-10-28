@@ -20,7 +20,8 @@
   "homepage": "https://github.com/SMAHH/TTTsmahh#readme",
   "devDependencies": {
     "jest": "^23.6.0",
-    "style-loader": "^0.23.1"
+    "style-loader": "^0.23.1",
+    "cryptiles": ">=4.1.2"
   },
   "dependencies": {
     "express": "^4.16.4",
