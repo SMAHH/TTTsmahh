@@ -56,7 +56,7 @@ function playerMove(player){
 
 function newGame(){
   var playerInput = '';
-  console.log('Do you want to play again? y/n');
+  console.log('Press y for newgame, any other character for quitting');
   prompt.get(['newGame'], function (err, result) {
   console.log(' ' + result.newGame);
     
