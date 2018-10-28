@@ -1,5 +1,6 @@
 const game = require('./../logic/gameLogic');
 var prompt = require('prompt');
+var clear = require('clear');
 var board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 var currentPlayer = 'X';
 var Xscore = 0;
@@ -9,22 +10,15 @@ function startGame(){
   prompt.start();
   board = game.clearBoard(board);
   currentPlayer = 'X';
-  //game.clearBoard(board);
   printBoard();
-  playerMove(currentPlayer);
-
+  playerMove(currentPlayer); 
 }
 
 function playerMove(player){
   console.log("Player turn is " +player);
-  
   prompt.get(['position'], function(err, result)
   {
-    //var str = result.position;
-    var input = game.verifyInput(result.position.charAt(0));
-
-
-
+    var input = game.verifyInput(result.position);
     if(!isNaN(input))
     {
       if(Number.isInteger(board[input]))
@@ -34,7 +28,7 @@ function playerMove(player){
         if(game.checkForWin(player, board))
         {
           console.log(player +' WINS!');
-          return newGame();          
+          return newGame();
         }
         if(game.checkForTie(board))
         {
@@ -78,6 +72,7 @@ function newGame(){
 }
 
 function printBoard() {
+  clear();
     console.log('\n\n\n' +
         ' ' + board[0] + ' | ' + board[1] + ' | ' + board[2] + '\n' +
         ' ---------\n' +
