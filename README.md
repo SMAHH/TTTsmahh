@@ -14,6 +14,8 @@ Snæbjörn Björnsson
 Documentation can be found in the docs folder of the repository
 
 ## Fancy badges!
+![windows](https://img.shields.io/badge/platform-win--32%20%7C%20win--64-lightgrey.svg "windows only")
+
 ![node_8.12.0](https://img.shields.io/badge/Node-8.12.0-brightgreen.svg "Node version")
 
 ![npm_6.4.1](https://img.shields.io/badge/npm-6.4.1-brightgreen.svg "npm version")
