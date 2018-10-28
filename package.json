@@ -5,7 +5,6 @@
   "main": "server.js",
   "scripts": {
     "test": "jest",
-    "build": "webpack",
     "start": "node server",
     "go": "concurrently \"webpack\" \"node server\"",
     "watch": "jest --watchAll",
