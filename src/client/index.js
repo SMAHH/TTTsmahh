@@ -1,5 +1,6 @@
 const game = require('./../logic/gameLogic');
 var prompt = require('prompt');
+var clear = require('clear');
 var board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 var currentPlayer = 'X';
 var Xscore = 0;
@@ -54,6 +55,7 @@ function playerMove(player){
 }
 
 function printBoard() {
+  clear();
     console.log('\n\n\n' +
         ' ' + board[0] + ' | ' + board[1] + ' | ' + board[2] + '\n' +
         ' ---------\n' +

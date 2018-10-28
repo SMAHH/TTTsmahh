@@ -1,3 +1,5 @@
+
+// Fall sem að athugar hvort að input frá notanda sé löglegt
 function verifyInput (input){
     if(input == ""){
         return("No square chosen...");
@@ -13,6 +15,7 @@ function verifyInput (input){
     }
 }
 
+// Fall sem að athugar hvort að borðið sé orðið full og þar af leiðandi er jafntefli
 function checkForTie(board){
   for (var i = 0; i < board.length ; i++) {
     if(Number.isInteger(board[i])){
@@ -22,6 +25,7 @@ function checkForTie(board){
   return true;
 }
 
+// Fall sem athugar hvort að leikmaður hafi náð 3 x eða o í röð og hafi þar af leiðandi unnið leikinn
 function checkForWin(currentPlayer, board){
   if(currentPlayer != 'X' && currentPlayer != 'O'){
     throw 'Invalid player';
@@ -44,6 +48,7 @@ function checkForWin(currentPlayer, board){
   }
 }
 
+// Hjálparfall fyrir checkForWin sem að skoðar eina röð og athugar hvort að reitirnir í henni innihaldi allir sama táknið
 function checkRow(a, b, c, currentPlayer, board){
   if(currentPlayer != 'X' && currentPlayer != 'O'){
     throw 'Invalid player';
@@ -61,7 +66,7 @@ function checkRow(a, b, c, currentPlayer, board){
   }
 }
 
-
+// Fall sem að breytir reit úr tölu yfir í tákn leikmanns
 function changeCell(board, currentPlayer, index){
   if(currentPlayer != 'X' && currentPlayer != 'O'){
     throw 'Invalid player';
@@ -77,6 +82,7 @@ function changeCell(board, currentPlayer, index){
   }
 }
 
+// Fall sem endursetur leikborðið
 function clearBoard(board){
   if(board.length == 9){
     for(var i = 0 ; i < 9 ; i++){
@@ -89,6 +95,7 @@ function clearBoard(board){
   }
 }
 
+//Fall sem sér um að skipta um leikmann á milli umferða
 function switchPlayer(currentPlayer){
     if(currentPlayer == 'X'){
         return 'O';
@@ -101,6 +108,7 @@ function switchPlayer(currentPlayer){
     }
 }
 
+// Fall sem sér um að hækka stigafjölda leikmanns eftir hvern leik
 function incrementScore(score){
   if(Number.isInteger(score)){
     if(score < 0){
