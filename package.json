@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --collectCoverage",
     "watch": "jest --watchAll",
-    "build": "npm test && pkg game.js --output TicTacToe.exe"
+    "build": "npm test && pkg game.js --output C:/TicTacToe.exe"
   },
   "repository": {
     "type": "git",
