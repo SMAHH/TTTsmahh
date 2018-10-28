@@ -5,8 +5,8 @@ function verifyInput (input){
     if(isNaN(input)){
         return("Player must choose a integer...");
     }
-    if(parseInt(input) < 1 || parseInt(input) > 9){
-        return("Player must choose a integer from 1 - 9");
+    if(parseInt(input) < 0 || parseInt(input) > 8){
+        return("Player must choose a integer from 0 - 8");
     }
     else{
         return(parseInt(input));
