@@ -11,7 +11,7 @@ it("Should return a message if input isn't a integer", () => {
 });
 
 it("Should return a message if invalid integer is chosen", () => {
-    expect(gameLogic.verifyInput("0")).toBe("Player must choose a integer from 1 - 9");
+    expect(gameLogic.verifyInput("9")).toBe("Player must choose a integer from 0 - 8");
 });
 
 it("Should return a valid chosen square", () => {
