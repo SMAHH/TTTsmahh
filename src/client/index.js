@@ -11,14 +11,11 @@ function startGame(){
   board = game.clearBoard(board);
   currentPlayer = 'X';
   printBoard();
-  playerMove(currentPlayer); 
+  inputPlayerMove(currentPlayer); 
 }
 
-function playerMove(player){
-  console.log("Player turn is " +player);
-  prompt.get(['position'], function(err, result)
-  {
-    var input = game.verifyInput(result.position);
+function playerMove(player, input){
+  
     if(!isNaN(input))
     {
       if(Number.isInteger(board[input]))
@@ -28,47 +25,40 @@ function playerMove(player){
         if(game.checkForWin(player, board))
         {
           console.log(player +' WINS!');
-          return newGame();
+          return inputNewGame();
         }
         if(game.checkForTie(board))
         {
           console.log('The game is tied');
-          return newGame();
+          return inputNewGame();
         }
         currentPlayer = game.switchPlayer(player);
-        playerMove(currentPlayer);
+        return inputPlayerMove(currentPlayer);
       }
       else
       {
         printBoard();
         console.log('Square is taken, select another...')
-        playerMove(player);
+        return inputPlayerMove(player);
       }
     }
     else
     {
       printBoard();
       console.log(input);
-      playerMove(player);
+      return inputPlayerMove(player);
     }
-  });
 }
 
-function newGame(){
-  var playerInput = '';
-  console.log('Press y for newgame, any other character for quitting');
-  prompt.get(['newGame'], function (err, result) {
-  console.log(' ' + result.newGame);
-    
-    playerInput = result.newGame.charAt(0);
+function newGame(playerInput){
+  
     if(playerInput == 'y' || playerInput == 'Y'){
       startGame(); 
     }
     else{
-      process.exit(1);
+      return;
 
     }
-  });
 }
 
 function printBoard() {
@@ -81,6 +71,33 @@ function printBoard() {
         ' ' + board[6] + ' | ' + board[7] + ' | ' + board[8] + '\n');
 }
 
+function inputNewGame() {
+  var playerInput = '';
+  console.log('Do you want to play again? y/n');
+
+  prompt.get(['newGame'], function (err, result) {
+    console.log(' ' + result.newGame);
+    playerInput = result.newGame.charAt(0);
+   
+    return newGame(playerInput);
+  });
+}
+
+function inputPlayerMove(player) {
+  console.log("Player turn is " +player);
+  prompt.get(['position'], function(err, result)
+  {
+    var input = game.verifyInput(result.position);
+
+    return playerMove(player, input);
+  });
+}
+
 module.exports = {
-  startGame
+  startGame,
+  playerMove,
+  newGame,
+  inputPlayerMove,
+  inputNewGame,
+  board
 }
