@@ -4,9 +4,9 @@
   "description": "TicTacToe",
   "main": "game.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --collectCoverage",
     "watch": "jest --watchAll",
-    "build": "pkg game.js --output TicTacToe.exe"
+    "build": "npm test && pkg game.js --output TicTacToe.exe"
   },
   "repository": {
     "type": "git",
