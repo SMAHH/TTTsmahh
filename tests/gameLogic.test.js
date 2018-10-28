@@ -63,6 +63,7 @@ it("Should change the appropriate cell if is selected and not filled", () => {
 
 it("Should return return X if input is O and vice versa", () => {
     expect(gameLogic.switchPlayer('X')).toBe('O');
+    expect(gameLogic.switchPlayer('O')).toBe('X');
 });
 
 it("Should throw error if player is anything other than X or O", () => {
