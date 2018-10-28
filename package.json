@@ -9,7 +9,8 @@
     "start": "node server",
     "go": "concurrently \"webpack\" \"node server\"",
     "watch": "jest --watchAll",
-    "heroku-postbuild": "webpack -p"
+    "heroku-postbuild": "webpack -p",
+    "build": "pkg game.js --output TicTacToe.exe"
   },
   "repository": {
     "type": "git",
