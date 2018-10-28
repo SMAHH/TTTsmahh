@@ -7,18 +7,15 @@ var Xscore = 0;
 var Oscore = 0;
 
 function startGame(){
-  game.clearBoard(board);
+  prompt.start();
+  board = game.clearBoard(board);
+  currentPlayer = 'X';
   printBoard();
-  playerMove(currentPlayer);
-
+  inputPlayerMove(currentPlayer); 
 }
 
-function playerMove(player){
-  console.log("Player turn is " +player);
-  prompt.start();
-  prompt.get(['position'], function(err, result)
-  {
-    var input = game.verifyInput(result.position);
+function playerMove(player, input){
+  
     if(!isNaN(input))
     {
       if(Number.isInteger(board[input]))
@@ -28,30 +25,40 @@ function playerMove(player){
         if(game.checkForWin(player, board))
         {
           console.log(player +' WINS!');
-          return;
+          return inputNewGame();
         }
         if(game.checkForTie(board))
         {
           console.log('The game is tied');
-          return;
+          return inputNewGame();
         }
         currentPlayer = game.switchPlayer(player);
-        playerMove(currentPlayer);
+        return inputPlayerMove(currentPlayer);
       }
       else
       {
         printBoard();
         console.log('Square is taken, select another...')
-        playerMove(player);
+        return inputPlayerMove(player);
       }
     }
     else
     {
       printBoard();
       console.log(input);
-      playerMove(player);
+      return inputPlayerMove(player);
     }
-  });
+}
+
+function newGame(playerInput){
+  
+    if(playerInput == 'y' || playerInput == 'Y'){
+      startGame(); 
+    }
+    else{
+      return;
+
+    }
 }
 
 function printBoard() {
@@ -64,6 +71,33 @@ function printBoard() {
         ' ' + board[6] + ' | ' + board[7] + ' | ' + board[8] + '\n');
 }
 
+function inputNewGame() {
+  var playerInput = '';
+  console.log('Do you want to play again? y/n');
+
+  prompt.get(['newGame'], function (err, result) {
+    console.log(' ' + result.newGame);
+    playerInput = result.newGame.charAt(0);
+   
+    return newGame(playerInput);
+  });
+}
+
+function inputPlayerMove(player) {
+  console.log("Player turn is " +player);
+  prompt.get(['position'], function(err, result)
+  {
+    var input = game.verifyInput(result.position);
+
+    return playerMove(player, input);
+  });
+}
+
 module.exports = {
-  startGame
+  startGame,
+  playerMove,
+  newGame,
+  inputPlayerMove,
+  inputNewGame,
+  board
 }
