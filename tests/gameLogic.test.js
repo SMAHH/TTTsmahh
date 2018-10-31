@@ -15,7 +15,7 @@ it("Should return a message if invalid integer is chosen", () => {
 });
 
 it("Should return a valid chosen square", () => {
-    expect(gameLogic.verifyInput("5")).toBe(5);
+    expect(gameLogic.verifyInput("5")).toBe(6);
 });
 
 // CLEAR BOARD
